@@ -76,18 +76,18 @@ refresh-certs: clean
 install-bundle:
 	$(MKDIR) $(DESTDIR)
 	$(CP) $(BUNDLE) $(DESTDIR)
-	$(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(BUNDLE)
-	$(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(BUNDLE)
+	sudo $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(BUNDLE)
+	sudo $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(BUNDLE)
 
 install: install-bundle
 	$(CP) $(KEYSTORE) $(DESTDIR)
-	$(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(KEYSTORE)
-	$(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(KEYSTORE)
+	sudo $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(KEYSTORE)
+	sudo $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(KEYSTORE)
 
 install-fips: install-bundle
 	$(CP) $(KEYSTOREFIPS) $(DESTDIR)/$(KEYSTORE)
-	$(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(KEYSTORE)
-	$(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(KEYSTORE)
+	sudo $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(KEYSTORE)
+	sudo $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(KEYSTORE)
 
 uninstall:
 	$(RM) $(DESTDIR)/$(BUNDLE)
