@@ -18,6 +18,7 @@ KEYSTOREFIPS:= $(KEYSTORE)-fips
 STORETYPE   := JKS
 KEYTOOL     := $(shell which keytool)
 BCFIPS      := /opt/puppetlabs/share/java/bc-fips.jar
+SUDO        := $(shell which sudo)
 
 .DEFAULT_GOAL := install
 
@@ -76,18 +77,18 @@ refresh-certs: clean
 install-bundle:
 	$(MKDIR) $(DESTDIR)
 	$(CP) $(BUNDLE) $(DESTDIR)
-	sudo $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(BUNDLE)
-	sudo $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(BUNDLE)
+	$(SUDO) $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(BUNDLE)
+	$(SUDO) $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(BUNDLE)
 
 install: install-bundle
 	$(CP) $(KEYSTORE) $(DESTDIR)
-	sudo $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(KEYSTORE)
-	sudo $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(KEYSTORE)
+	$(SUDO) $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(KEYSTORE)
+	$(SUDO) $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(KEYSTORE)
 
 install-fips: install-bundle
 	$(CP) $(KEYSTOREFIPS) $(DESTDIR)/$(KEYSTORE)
-	sudo $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(KEYSTORE)
-	sudo $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(KEYSTORE)
+	$(SUDO) $(CHOWN) $(USER):$(GROUP) $(DESTDIR)/$(KEYSTORE)
+	$(SUDO) $(CHMOD) $(PERMISSIONS) $(DESTDIR)/$(KEYSTORE)
 
 uninstall:
 	$(RM) $(DESTDIR)/$(BUNDLE)
