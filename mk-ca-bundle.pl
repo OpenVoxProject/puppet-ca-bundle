@@ -310,7 +310,7 @@ my $oldhash = oldhash($crt);
 report "SHA256 of old file: $oldhash";
 
 if(!$opt_n) {
-  report "Downloading $txt ...";
+  report "Downloading $txt from $url ...";
 
   # If we have an HTTPS URL then use curl
   if($url =~ /^https:\/\//i) {
@@ -319,7 +319,7 @@ if(!$opt_n) {
         report "Get certdata with curl!";
         my $proto = !$opt_k ? "--proto =https" : "";
         my $quiet = $opt_q ? "-s" : "";
-        my @out = `curl -w %{response_code} $proto $quiet -o "$txt" "$url"`;
+        my @out = `curl --follow -w %{response_code} $proto $quiet -o "$txt" "$url"`;
         if(!$? && @out && $out[0] == 200) {
           $fetched = 1;
           report "Downloaded $txt";
