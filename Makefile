@@ -70,7 +70,7 @@ prepare: clean bundle keystore
 
 refresh-certs: clean
 	$(RM) *.crt
-	perl mk-ca-bundle.pl
+	perl mk-ca-bundle.pl nss
 	python certdata2pem.py
 	./remove_unwanted_files.sh
 
