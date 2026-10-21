@@ -1,7 +1,7 @@
 # alias="GTS Root R3"
-# trust=CKA_TRUST_EMAIL_PROTECTION CKA_TRUST_SERVER_AUTH
+# trust=CKA_TRUST_SERVER_AUTH
 # distrust=
-# openssl-trust=emailProtection serverAuth
+# openssl-trust=serverAuth
 -----BEGIN CERTIFICATE-----
 MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYD
 VQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIG

@@ -1,7 +1,7 @@
 # alias="Amazon Root CA 4"
-# trust=CKA_TRUST_EMAIL_PROTECTION CKA_TRUST_SERVER_AUTH
+# trust=CKA_TRUST_SERVER_AUTH
 # distrust=
-# openssl-trust=emailProtection serverAuth
+# openssl-trust=serverAuth
 -----BEGIN CERTIFICATE-----
 MIIB8jCCAXigAwIBAgITBmyf18G7EEwpQ+Vxe3ssyBrBDjAKBggqhkjOPQQDAzA5
 MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6b24g

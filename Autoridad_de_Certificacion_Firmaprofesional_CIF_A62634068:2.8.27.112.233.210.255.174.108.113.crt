@@ -1,7 +1,7 @@
 # alias="Autoridad de Certificacion Firmaprofesional CIF A62634068"
-# trust=CKA_TRUST_EMAIL_PROTECTION CKA_TRUST_SERVER_AUTH
+# trust=CKA_TRUST_SERVER_AUTH
 # distrust=
-# openssl-trust=emailProtection serverAuth
+# openssl-trust=serverAuth
 -----BEGIN CERTIFICATE-----
 MIIGFDCCA/ygAwIBAgIIG3Dp0v+ubHEwDQYJKoZIhvcNAQELBQAwUTELMAkGA1UE
 BhMCRVMxQjBABgNVBAMMOUF1dG9yaWRhZCBkZSBDZXJ0aWZpY2FjaW9uIEZpcm1h
